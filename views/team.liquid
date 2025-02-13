@@ -1,7 +1,5 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Students</h2>
-
 <section class="filters">
   <h2>Filter</h2>
   <a href="https://connect-your-tribe-squad-page-1nw9.onrender.com/team">Team</a>
@@ -12,10 +10,11 @@
   <ul>
     {% for person in persons %}
       <li>
-        <a href="/student/{{ person.id }}"> <img src="{{ person.avatar }}" height="250px" width="250px"></a>
+        <a href="/student/{{ person.team }}"> <img src="{{ person.avatar }}" height="250px" width="250px"></a>
       </li>
     {% endfor %}
   </ul>
 </section>
+
 
 {% render 'partials/foot.liquid', squads: squads %}
