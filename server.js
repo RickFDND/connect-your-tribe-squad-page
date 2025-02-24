@@ -59,6 +59,22 @@ app.get('/', async function (request, response) {
   response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 })
 
+//workshop user-generated-content
+let messages = []
+app.get('/berichten', async function (request, response) {
+
+  response.render('messages.liquid', {messages:messages})  
+})
+
+app.post('/berichten', async function (request, response) {
+  
+  messages.push(request.body.huts)
+
+  response.redirect(303, '/berichten')
+})
+
+
+//team
 app.get('/team', async function (request, response) {
   
   const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=team&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')

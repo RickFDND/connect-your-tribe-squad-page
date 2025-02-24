@@ -2,6 +2,7 @@ body {
     background-color: rgb(0, 255, 213);
 }
 
+/*squadpage met filters*/
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -12,3 +13,10 @@ ul {
     flex: 0 0 33.3333%;
   }
 }
+
+/*Messages*/
+form{
+  width: 500px;
+  height: auto;
+}
+
